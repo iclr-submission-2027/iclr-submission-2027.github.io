@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Anonymous for double-blind review: no author, institution, social or citation_*
+       metadata, and the page is hidden from indexers. Restored at camera-ready --
+       see docs/deanonymize.md. -->
+  <meta name="description" content="Project page for a paper under review: understanding robot co-design through the behaviour of its two optimizers.">
+  <meta name="robots" content="noindex, nofollow">
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+  <title>Understanding Robot Co-Design: Exploiting the Asymmetry between the Designer and Controller</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Loaded synchronously: both restyle laid-out content, so loading them late moved the page.
+       Font Awesome icons are inlined as SVG in the markup; only the arXiv glyph needs a font. -->
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  <!-- Landscape walk: the ported simulation, then the widget, which loads plotly (gl3d-only build)
+       once the page is idle and runs the simulation in walk-worker.js -->
+  <script defer src="static/js/landscape.js"></script>
+  <script defer src="static/js/walk.js"></script>
+  <!-- Metric definitions: KaTeX, vendored like plotly, typesets the $$...$$ and \(...\) in #metrics -->
+  <link rel="stylesheet" href="static/css/katex.min.css">
+  <script defer src="static/js/katex.min.js"></script>
+  <script defer src="static/js/katex-auto-render.min.js"
+          onload="renderMathInElement(document.getElementById('metrics'), {throwOnError: false})"></script>
+  
+</head>
+<body>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <svg class="svg-inline--fa fas fa-chevron-up" aria-hidden="true" viewBox="0 0 448 512"><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"/></svg>
+  </button>
+
+
+<main id="main-content">
+
+<!-- Title, authors, links -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <h1 class="title is-1 publication-title">Understanding Robot Co-Design: Exploiting the Asymmetry between the Designer and Controller</h1>
+
+      <!-- Anonymous for double-blind review. Real byline in docs/deanonymize.md. -->
+      <div class="is-size-5 publication-authors">
+        <span class="author-block">Anonymous Authors</span>
+      </div>
+
+      <div class="is-size-5 publication-authors">
+        <span class="author-block">Under review</span>
+      </div>
+
+      <div class="publication-links">
+        <span class="link-block">
+          <a href="static/pdfs/paper.pdf" target="_blank" class="button is-normal is-rounded is-dark">
+            <span class="icon"><svg class="svg-inline--fa fas fa-file-pdf" aria-hidden="true" viewBox="0 0 384 512"><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"/></svg></span>
+            <span>Paper</span>
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- No `controls`, and untouchable by the pointer: the banner is decoration, so a mouse
+           crossing it must not raise a UI or pause it. `playsinline` stops iOS going fullscreen. -->
+      <video width="2560" height="1080" autoplay muted loop playsinline preload="metadata">
+        <source src="static/videos/filmstrip_baseline_s42.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+
+<!-- Content sections: each is `section.section` around one container, headed by a
+     .section-title, and shading (`is-shaded`) alternates down the page. -->
+
+<!-- Paper abstract -->
+<section class="section is-shaded" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title section-title">Abstract</h2>
+        <div class="abstract">
+          <p>
+            Robot co-design jointly optimizes morphology and control against the same final objective, but does that mean the two optimizers should behave alike? To answer this, we create a test environment and explore it through the lens of three new metrics: spread, exploration, and generalization. By varying these properties independently, we find that effective co-design requires opposite behavior from the two optimizers: the controller requires broad generalization to new designs and suffers from wide sampling, whereas the designer barely benefits from generalization but must sample the design space broadly to find good designs. We show that the source of this asymmetry is due to the sequential structure of co-design in which the body is chosen before the controller acts, and that it can be explained through the Expected Value of Perfect Information. Our test bed also shows that broader morphology search can discover better designs but may simultaneously worsen the selection when the controller cannot evaluate unfamiliar bodies reliably. We observe optimization profiles in existing co-design methods, and combine our findings to construct <strong>SCOPER</strong>, which is tailored to exploit the optimizer asymmetry by maintaining a broad morphological search space, and using representation learning to increase controller generalization. In our experiments, SCOPER demonstrates the value of following these principles by outperforming prior co-design methods on task performance by ~50% and halving runtime.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Metrics (moved ahead of the Landscape walk, so the page defines these before using them --
+     the paper's own order) -->
+<section class="section" id="metrics">
+  <div class="container is-max-desktop">
+    <h2 class="title section-title">Metric Definitions</h2>
+    <p class="prose">
+      Robot co-design has two optimizers: a designer that proposes a body, and a controller that drives it.
+      We compare them using three properties &mdash; spread, exploration, and generalization &mdash; which the
+      Co-Design Playground below lets you set directly. Real codesign algorithms don't expose these properties
+      so directly, so before measuring them there, we first define the quantities every measurement is built on:
+    </p>
+
+    <!-- The quantities more than one cell of the grid below is built on, defined once. -->
+    <div class="metric-shared">
+      <div class="metric">
+        <span class="metric-name">Structural distance</span>
+        <p class="metric-gloss">
+          The number of module edits that turn body \(b\) into body \(b'\). The limbs \(\ell_n\) in each
+          of the 8 slots are compared module by module outwards-in, meaning starting from the final position \(p = 1\).
+          Limbs with different lengths gain one edit per extra module.
+        </p>
+        $$d_{\text{struct}}(b,b') = \sum_{n=1}^{8} d_{\text{limb}}(\ell_n, \ell'_n)$$
+        $$d_{\text{limb}}(\ell,\ell') = \sum_{p=1}^{\min(|\ell|,|\ell'|)} \mathbb{1}\big[\ell_p \ne \ell'_p\big]
+          + \big|\,|\ell| - |\ell'|\,\big|$$
+        <p class="metric-reads">Zero for identical bodies. If two bodies are identical except for a totally different three-module limb, the distance is 3.</p>
+      </div>
+      <div class="metric">
+        <span class="metric-name">Behavioral distance</span>
+        <p class="metric-gloss">
+          How differently the Controller drives two bodies. Each body's control is reduced to how hard
+          the Controller drives each limb slot over an episode — \(u_n\), its Joint Action Variance
+          (JAV), the variance of the action commanded there. Two bodies are compared over the slots
+          \(S\) they both have.
+        </p>
+        $$d_{\text{behav}}(b,b') = \frac{1}{|S|} \sum_{n \in S} \big| u_n(b) - u_n(b') \big|$$
+        <p class="metric-reads">Zero when the Controller drives both bodies the same way.</p>
+      </div>
+      <div class="metric">
+        <span class="metric-name">Committed body</span>
+        <p class="metric-gloss">
+          \(b^\star\), the body the Designer would hand over if asked to choose rather than sample:
+          its most common greedy draw. What it earns under the Controller's mean action, \(G(0)\), is
+          the scale both generalization metrics divide by — fractions rather than rewards, so an
+          algorithm earning ten times another's reward and decaying at the same rate reads the same.
+        </p>
+        $$G(0) = \bar R(b^\star)$$
+        <p class="metric-reads">
+          The reference point regret, perturbation distance and both generalization metrics measure from.
+        </p>
+      </div>
+      <div class="metric">
+        <span class="metric-name">Perturbation distance</span>
+        <p class="metric-gloss">
+          To draw bodies at distance \(k\), the Designer is made less greedy, its choices softened by a
+          temperature \(T_k\), until its bodies average \(k\) edits from the committed body.
+        </p>
+        $$\mathbb{E}_{b \sim P_{T_k}}\big[\, d_{\text{struct}}(b, b^\star) \,\big] = k$$
+        <p class="metric-reads">\(k = 0\) is the committed body itself; the largest \(k\) is a Designer choosing at random.</p>
+      </div>
+    </div>
+
+    <p class="prose">
+      Using these, we can measure each metric in real codesign algorithms,
+      for both the Designer and the Controller:
+    </p>
+
+    <!-- Laid out as the Playground's settings panel is: same rows, same two columns, so each
+         slider there has its measurement in the same place here. Under 768px the grid stacks,
+         the column headings hide, and each cell's own role label comes back. -->
+    <div class="metric-grid">
+      <span class="metric-corner"></span>
+      <span class="metric-head">Designer</span>
+      <span class="metric-head">Controller</span>
+
+      <span class="metric-sep"></span>
+      <span class="metric-row">Spread</span>
+      <div class="metric">
+        <span class="metric-who">Designer</span>
+        <span class="metric-name">Designer spread</span>
+        <p class="metric-gloss">The average structural distance between two of the \(N\) bodies the Designer draws.</p>
+        $$\text{spread}_{\text{Designer}} = \frac{2}{N(N-1)} \sum_{i &lt; j} d_{\text{struct}}(b_i, b_j)$$
+        <p class="metric-reads">Higher means wider spread. Zero means every draw is the same body.</p>
+      </div>
+      <div class="metric">
+        <span class="metric-who">Controller</span>
+        <span class="metric-name">Behavioral spread</span>
+        <p class="metric-gloss">The average behavioral distance between two of the \(N\) bodies the Designer draws.</p>
+        $$\text{spread}_{\text{behav}} = \frac{2}{N(N-1)} \sum_{i &lt; j} d_{\text{behav}}(b_i, b_j)$$
+        <p class="metric-reads">
+          Higher means wider spread. Its slope against \(d_{\text{struct}}\) separates the Controller's
+          own specialization from the variety of bodies it was handed.
+        </p>
+      </div>
+
+      <span class="metric-sep"></span>
+      <span class="metric-row">Exploration</span>
+      <div class="metric">
+        <span class="metric-who">Designer</span>
+        <span class="metric-name">Designer regret</span>
+        <p class="metric-gloss">
+          A Z-score of the committed body's performance relative to the bodies the Designer samples, according to the Designer's own critic \(v\).
+          This measures how much the Designer's critic thinks it could have done better if it had sampled more greedily.
+        </p>
+        $$\text{regret}_{\text{Designer}} = \frac{v(b^\star) - \bar v}{\operatorname{sd}\big[v(b)\big]}$$
+        <p class="metric-reads">
+          Higher means more exploration. Zero means its draws look as good as its choice. It can go
+          negative when the Designer and its critic disagree.
+        </p>
+      </div>
+      <div class="metric">
+        <span class="metric-who">Controller</span>
+        <span class="metric-name">Controller regret</span>
+        <p class="metric-gloss">
+          A Z-score of the Controller's deterministic actions relative to its sampled actions, according to the Controller's own critic \(V\).
+          This measures how much the Controller's critic thinks it could have done better if it had sampled more greedily.
+        </p>
+        $$\text{regret}_{\text{Controller}} = \frac{\mathbb{E}_b\big[\bar V_\mu(b)\big] - \mathbb{E}_b\big[\bar V_\pi(b)\big]}{\operatorname{sd}_b\big[\bar V_\pi(b)\big]}$$
+        <p class="metric-reads">Higher means more exploration. Zero means sampling has converged or the controller is not affecting performance.
+        </p>
+      </div>
+
+      <span class="metric-sep"></span>
+      <span class="metric-row">Generalization</span>
+      <div class="metric">
+        <span class="metric-who">Designer</span>
+        <span class="metric-name">Designer-critic excess error</span>
+        <p class="metric-gloss">
+          The Designer's critic predicts each body's return, \(\hat R\); the Controller actually earns
+          \(\bar R\). The critic is already off by a constant \(\delta_0\) on its own committed body, so
+          that offset comes off every body first. What is left is each body's real error, and the
+          metric is its typical size at distance \(k\), as a fraction of \(G(0)\).
+        </p>
+        $$e_i = \hat R(b_i) - \bar R(b_i) - \delta_0, \qquad \delta_0 = \mathbb{E}_{k=0}\big[\, \hat R - \bar R \,\big]$$
+        $$\text{excess error}(k) = \frac{1}{G(0)} \sqrt{ \frac{1}{N} \sum_{i=1}^{N} e_i^A e_i^B }, \quad b_i \sim P_{T_k}$$
+        <p class="metric-gloss">
+          \(A\) and \(B\) are two halves of each body's episodes, so their product cancels the luck
+          left in \(\bar R\) — which a size would otherwise count as critic error.
+        </p>
+        <p class="metric-reads">
+          Zero means the critic judges unfamiliar bodies as well as familiar ones; rising means its
+          judgement decays with distance. The sign of the gap, reported alongside, says which way —
+          over-optimism sends a Designer into bodies that do not work, pessimism pins it to what it
+          already knows.
+        </p>
+      </div>
+      <div class="metric">
+        <span class="metric-who">Controller</span>
+        <span class="metric-name">Controller retention curve</span>
+        <p class="metric-gloss">
+          The Controller's mean return, taking its mean action, on bodies at distance \(k\), as a
+          fraction of what the committed body earns.
+        </p>
+        $$\hat G(k) = \frac{G(k)}{G(0)}, \qquad G(k) = \frac{1}{N} \sum_{i=1}^{N} \bar R(b_i), \quad b_i \sim P_{T_k}$$
+        <p class="metric-reads">
+          Every curve starts at 1. Staying there means a general Controller; a fast drop means it only
+          works near the bodies its Designer makes. Above 1 means the Designer committed to a body its
+          own Controller drives worse than the neighbours — a finding about the Designer.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Landscape walk -->
+<section class="section is-shaded" id="walk">
+  <div class="container is-max-desktop">
+    <h2 class="title section-title">Co-Design Playground</h2>
+
+    <div id="walk-plot" class="walk-plot"></div>
+
+    <!-- The settings, one line per axis: the two optimizers hold the same three radii, so
+         putting them side by side on a line is what makes a mismatch visible, and heading the
+         two columns once is what saves repeating "designer"/"controller" on all six. Below
+         the rule the same two columns carry what the walk costs and how fast it is watched,
+         which is nobody's setting in particular, so those cells keep their own labels.
+
+         The per-slider labels stay in the markup for narrow screens: under 768px the grid
+         collapses to one column, the headings stop heading anything and hide, and these come
+         back so a stacked slider still says whose it is. -->
+    <div class="walk-controls">
+      <span class="walk-corner"></span>
+      <span class="walk-head">Designer</span>
+      <span class="walk-head">Controller</span>
+
+      <span class="walk-row">Spread</span>
+      <label class="walk-cell walk-cell-pair" for="walk-sig_d">
+        <span class="walk-who">designer</span>
+        <input type="range" id="walk-sig_d" min="0" max="1000" step="1">
+        <output id="walk-sig_d-val"></output>
+      </label>
+      <label class="walk-cell walk-cell-pair" for="walk-sig_c">
+        <span class="walk-who">controller</span>
+        <input type="range" id="walk-sig_c" min="0" max="1000" step="1">
+        <output id="walk-sig_c-val"></output>
+      </label>
+
+      <span class="walk-row">Exploration</span>
+      <label class="walk-cell walk-cell-pair" for="walk-e_d">
+        <span class="walk-who">designer</span>
+        <input type="range" id="walk-e_d" min="0" max="1000" step="1">
+        <output id="walk-e_d-val"></output>
+      </label>
+      <label class="walk-cell walk-cell-pair" for="walk-e_c">
+        <span class="walk-who">controller</span>
+        <input type="range" id="walk-e_c" min="0" max="1000" step="1">
+        <output id="walk-e_c-val"></output>
+      </label>
+
+      <span class="walk-row">Generalization</span>
+      <label class="walk-cell walk-cell-pair" for="walk-g_d">
+        <span class="walk-who">designer</span>
+        <input type="range" id="walk-g_d" min="0" max="1000" step="1">
+        <output id="walk-g_d-val"></output>
+      </label>
+      <label class="walk-cell walk-cell-pair" for="walk-g_c">
+        <span class="walk-who">controller</span>
+        <input type="range" id="walk-g_c" min="0" max="1000" step="1">
+        <output id="walk-g_c-val"></output>
+      </label>
+
+      <span class="walk-sep"></span>
+
+      <span class="walk-row">Sampling</span>
+      <label class="walk-cell" for="walk-P">
+        <span class="walk-who">population size</span>
+        <input type="range" id="walk-P" min="0" max="4" step="1">
+        <output id="walk-P-val"></output>
+      </label>
+      <label class="walk-cell" for="walk-k">
+        <span class="walk-who">designer-controller ratio</span>
+        <input type="range" id="walk-k" min="0" max="3" step="1" value="0">
+        <output id="walk-k-val"></output>
+      </label>
+
+      <span class="walk-row">Playback</span>
+      <span class="walk-cell walk-cell-button">
+        <button type="button" id="walk-reset" class="button is-dark is-small">Reset</button>
+      </span>
+      <label class="walk-cell" for="walk-speed">
+        <span class="walk-who">simulation speed</span>
+        <input type="range" id="walk-speed" min="0" max="4" step="1">
+        <output id="walk-speed-val"></output>
+      </label>
+    </div>
+
+    <p class="prose">
+      <span class="lead-in">This model is</span>
+      a joint design and control problem, played out on a toy reward landscape.
+      There are two optimizers here, one for design and one for control,
+      both trying to work together to achieve the maximum reward.
+      The designer acts first, sampling a point on the design axis. Then the controller
+      samples an action on the control axis, conditioned on the design, and both optimizers see the resulting reward.
+      The big dot shows the pair's current best guess at the optimal design and action, and the small dots show the points they've jointly sampled.
+    </p>
+
+    <div class="prose">
+    <span class="lead-in">The parameters are:</span>
+    <ul class="term-list">
+      <li><b>Spread:</b> how wide the optimizer's search is.
+        Low spread means the optimizer will sample a small region of the landscape,
+        and high spread means the optimizer will sample a larger region.</li>
+      <li><b>Exploration:</b> how often the optimizer samples points it is unsure of,
+        as opposed to points it knows are good.</li>
+      <li><b>Generalization:</b> how wide a space the optimizer has good predictive power in.
+        Low generalization means the optimizer can only predict good points in a small region,
+        while high generalization means it can predict good points across more of the landscape.</li>
+    </ul>
+    </div>
+
+    <p class="prose">
+      <span class="lead-in">This implementation uses</span> gaussian means
+      to model the optimizers, with a generic arbitrary reward landscape with local and global optima.
+    </p>
+
+    <figure class="figure">
+      <img width="1800" height="920" src="static/images/figures/joint_main-effect-by-N.png"
+           alt="Signed main effect of each parameter, by landscape dimensionality" loading="lazy"/>
+      <figcaption class="caption">How much each parameter moves best design fitness, as the landscape's dimensionality N grows. Both spread parameters dominate throughout; exploration barely matters at any N.</figcaption>
+    </figure>
+
+    <p class="prose">
+      <span class="lead-in">Experiments in this toy space showed</span>
+      that the designer should be doing the majority of the exploratory sampling, attempting to cover a wide
+      range of the landscape, whereas the controller should be focusing on exploiting the known good design regions.
+      Unsurprisingly, controller generalization is extremely important, although this is often challenging to achieve
+      in real optimization. What is surprising is that the designer generalization proved relatively unimportant.
+    </p>
+
+    <figure class="figure">
+      <img width="1205" height="436" src="static/images/figures/exp1-3_across_n.png"
+           alt="Spread, exploration and generalization swept for the designer and controller" loading="lazy"/>
+      <figcaption class="caption">Best design fitness against each parameter, swept independently for the designer (top) and controller (bottom), at five landscape dimensionalities. Spread helps the designer and hurts the controller; generalization matters far more to the controller.</figcaption>
+    </figure>
+
+    <p class="prose">
+      <span class="lead-in">We also swept</span> how often the designer proposes a fresh batch of bodies relative to how
+      long the controller trains on each one. At a fixed evaluation budget, giving the controller a fresh design every
+      single evaluation (a 1:1 ratio) beat every other ratio we tried — this is the setting SCOPER uses below.
+    </p>
+
+    <figure class="figure">
+      <img width="3342" height="1280" src="static/images/figures/kappa_sweep.png"
+           alt="Best design fitness against the designer-controller sampling ratio" loading="lazy"/>
+      <figcaption class="caption">Normalized best design fitness against the sampling ratio (controller updates per design batch), at a fixed evaluation budget. A fresh design every evaluation (ratio 1:1) is consistently best, both on average and at its best setting.</figcaption>
+    </figure>
+
+    <p class="prose">
+      <span class="lead-in">The asymmetry holds jointly, too:</span> sweeping the sampling ratio and the
+      landscape's dimensionality together, designer spread keeps helping and controller spread keeps hurting
+      at every combination we tried.
+    </p>
+
+    <figure class="figure">
+      <img width="2358" height="1092" src="static/images/figures/exp4_main_effect_across_n.png"
+           alt="Signed main effect of each parameter, by sampling ratio and dimensionality" loading="lazy"/>
+      <figcaption class="caption">Signed main effect of each of the six parameters on final return, swept jointly over the sampling ratio and the landscape's dimensionality. Designer spread stays positive everywhere; controller spread stays negative everywhere except at a 1:1 ratio in the lowest-dimensional landscapes, where it briefly flips positive.</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<!-- Co-Design on Robots -->
+<section class="section" id="robots">
+  <div class="container is-max-desktop">
+    <h2 class="title section-title">Co-Design on Robots</h2>
+    <p class="prose">
+      The toy landscape lets each property be set by hand. Real co-design algorithms offer no such
+      control &mdash; their spread, exploration and generalization all emerge together from architecture
+      and training. Here we measure them in a real robotics setting: assembling a modular Ant robot from
+      limb modules, comparing two existing co-design methods against SCOPER, the method we build in the
+      next section to test whether the toy findings can also guide new algorithms.
+    </p>
+    <p class="prose">
+      NGE, an evolutionary algorithm, keeps a broad designer spread throughout training, but its controller
+      transfers poorly across morphology changes: changing a single module of its committed body cuts return
+      to 43%. BodyGen, a pair of PPO-trained transformers, has the opposite problem &mdash; its shared
+      controller retains far more return on nearby bodies, but its designer collapses onto a single body by
+      roughly half-way through training. Neither combines both behaviors, which is exactly the asymmetry the
+      toy landscape predicts a good co-design method needs.
+    </p>
+
+    <figure class="figure">
+      <img width="2560" height="2360" src="static/images/figures/exp5-baselines_6_robots-4x2.png"
+           alt="Designer and controller spread, exploration and generalization for NGE, BodyGen and SCOPER" loading="lazy"/>
+      <figcaption class="caption">Designer and controller spread, exploration and generalization over training, for NGE, BodyGen and SCOPER (bottom row: return against wall-clock time and against environment frames). NGE has no designer critic, so its designer exploration and generalization are undefined. Stars mark each method's specialized return &mdash; its ceiling if it stopped generalizing and fine-tuned on just the committed body.</figcaption>
+    </figure>
+
+    <h3 class="title is-4">Baseline Comparisons</h3>
+    <!-- One item per file in static/videos/carousel/. Adding a video means adding a
+         <figure class="item"> block here; the page is static and cannot list the directory. -->
+    <div id="results-carousel" class="carousel results-carousel">
+      <figure class="item">
+        <video width="1280" height="656" controls muted loop preload="metadata">
+          <source src="static/videos/carousel/ours.mp4" type="video/mp4">
+        </video>
+        <figcaption class="caption">SCOPER</figcaption>
+      </figure>
+      <figure class="item">
+        <video width="1872" height="928" controls muted loop preload="metadata">
+          <source src="static/videos/carousel/bodygen.mp4" type="video/mp4">
+        </video>
+        <figcaption class="caption">BodyGen</figcaption>
+      </figure>
+      <figure class="item">
+        <video width="1872" height="928" controls muted loop preload="metadata">
+          <source src="static/videos/carousel/nge.mp4" type="video/mp4">
+        </video>
+        <figcaption class="caption">NGE</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+<!-- Method -->
+<section class="section is-shaded" id="method">
+  <div class="container is-max-desktop">
+    <h2 class="title section-title">SCOPER</h2>
+    <p class="prose">
+      SCOPER (Structured Co-design Optimization with Physical Embodiment Representations) targets the
+      asymmetry above directly: its designer samples broadly and converges slowly, while its controller acts
+      near-greedily and shares a single transformer trunk with the designer, so representations learned for
+      one carry over to the other.
+    </p>
+
+    <!-- RL.png is hand-drawn with no paper source, so it lives in static/images/ rather than
+         static/images/figures/ -- scripts/sync-figures.sh empties that directory. It also keeps the small,
+         capped .method-figure treatment; fig_architecture.png and fig_training.png below are dense,
+         label-heavy Paper figures that need the wider .figure treatment to stay legible. -->
+    <figure class="figure method-figure">
+      <img width="926" height="491" src="static/images/RL.png" alt="Generator and control agent in one episode" loading="lazy"/>
+      <figcaption class="caption">
+        The designer acts once at the start of the episode &mdash; it creates a body. The controller
+        sees that body as part of its state, and drives it to maximize reward for the episode.
+        The designer is rewarded at the end of the episode based on the total reward acquired.
+      </figcaption>
+    </figure>
+
+    <figure class="figure">
+      <img width="1762" height="1046" src="static/images/figures/fig_architecture.png" alt="SCOPER's shared transformer architecture" loading="lazy"/>
+      <figcaption class="caption">
+        SCOPER tokenizes a body by limb slot and depth, then reads it with one shared transformer trunk. The
+        trunk carries four heads &mdash; the designer's and controller's actor and critic &mdash; plus
+        forward-dynamics and forward-kinematics auxiliary heads that push it to learn representations
+        grounded in the body's physical structure.
+      </figcaption>
+    </figure>
+
+    <p class="prose">
+      Training proceeds in windows of one episode: the designer samples a fresh body for every parallel
+      environment, the controller trains on all of them with PPO plus the auxiliary losses, and at the end
+      of the window the designer is updated on the returns its bodies earned.
+    </p>
+
+    <figure class="figure">
+      <img width="1698" height="1533" src="static/images/figures/fig_training.png" alt="SCOPER's training loop" loading="lazy"/>
+      <figcaption class="caption">
+        (a) Over a run, designer-sampled bodies gradually replace a fixed teacher's. (b) Each window trains
+        the controller, then the designer, then rebuilds the simulator with the newly sampled bodies. (c) The
+        designer grows a body one limb module at a time; its critic scores every partial body against the
+        finished body's return.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<!-- Results -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <h2 class="title section-title">Results</h2>
+
+    <p class="prose">
+      Put together against two existing co-design methods on the Modular Ant task, SCOPER reaches the
+      highest return, using about as many environment samples as random search or CEM but far fewer
+      than NGE or BodyGen relative to the wall-clock time it takes:
+    </p>
+
+    <div class="table-container">
+      <table class="results-table">
+        <caption>Comparison of co-design algorithms' performance and runtime on the Modular Ant task. Specialized return is evaluated for the final committed body. Mean &plusmn; 95% CI over eight seeds, or three for NGE and BodyGen.</caption>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Return</th>
+            <th>Specialized</th>
+            <th>Samples</th>
+            <th>Wall-clock (h)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Random design sampling</td>
+            <td>861 &plusmn; 21</td>
+            <td>&mdash;</td>
+            <td>201M</td>
+            <td>5.7</td>
+          </tr>
+          <tr>
+            <td>CEM</td>
+            <td>1560 &plusmn; 118</td>
+            <td>&mdash;</td>
+            <td>205M</td>
+            <td>0.2</td>
+          </tr>
+          <tr>
+            <td>NGE</td>
+            <td>3974 &plusmn; 506</td>
+            <td>5850 &plusmn; 2341</td>
+            <td>225M</td>
+            <td>20.9</td>
+          </tr>
+          <tr>
+            <td>BodyGen</td>
+            <td>4971 &plusmn; 862</td>
+            <td>5225 &plusmn; 261</td>
+            <td>50M</td>
+            <td>17.6</td>
+          </tr>
+          <tr class="results-table-highlight">
+            <td>SCOPER</td>
+            <td>7441 &plusmn; 1026</td>
+            <td>7892 &plusmn; 1684</td>
+            <td>201M</td>
+            <td>7.3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- Ablations -->
+<section class="section is-shaded" id="ablations">
+  <div class="container is-max-desktop">
+    <h2 class="title section-title">Ablations</h2>
+    <p class="prose">
+      SCOPER rests on three choices: a shared backbone, forward-dynamics/forward-kinematics auxiliary
+      objectives, and controller preservation across designer updates. We ablate each in turn, plus
+      the cross-limb attention the backbone relies on, to check they move the metrics they're meant to.
+    </p>
+
+    <figure class="figure">
+      <img width="2800" height="1560" src="static/images/figures/ablate_backbone.png" alt="Ablation of the shared backbone" loading="lazy"/>
+      <figcaption class="caption">Removing the shared backbone hurts co-design substantially: a split network (separate designer/controller, distilled through an auxiliary head) loses roughly two fifths of SCOPER's return, and a fully decoupled network loses about a third &mdash; despite both keeping a wider designer spread. Sharing the representation coordinates search and control; search breadth alone isn't enough.</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <img width="3000" height="860" src="static/images/figures/ablate_aux.png" alt="Ablation of the forward-dynamics/forward-kinematics auxiliary objectives" loading="lazy"/>
+      <figcaption class="caption">Removing the forward-dynamics/forward-kinematics auxiliary objectives lowers online co-design return once training shifts from imitation to RL, though the effect is smaller than removing the shared backbone entirely.</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <img width="2800" height="1000" src="static/images/figures/ablate_clone.png" alt="Ablation of controller preservation" loading="lazy"/>
+      <figcaption class="caption">SCOPER also preserves the controller's behavior across designer updates, blending a KL penalty with a value-matching term. Dropping either term, or control preservation entirely, costs return; adding the matching preservation term to the designer's own head as well helps further.</figcaption>
+    </figure>
+
+    <figure class="figure">
+      <img width="2400" height="860" src="static/images/figures/ablate_attention.png" alt="Ablation of cross-limb attention" loading="lazy"/>
+      <figcaption class="caption">Masking cross-limb attention slows learning sharply on a fixed body: masking everything but a limb's own state and the CLS token (self_cls) takes three times as long to reach 90% of its own asymptote, and masking the CLS token too (self) never gets close. Cross-limb attention is doing real work, not just adding parameters.</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+<!-- Conclusion -->
+<section class="section" id="conclusion">
+  <div class="container is-max-desktop">
+    <h2 class="title section-title">Conclusion</h2>
+    <p class="prose">
+      In this paper we investigate a fundamental quirk of co-design optimization, which is that the
+      body's and the controller's optimizers are asymmetric in their preferred behaviors. Our
+      experiments in both theoretical and applied environments demonstrate that spread is useful to
+      the designer and not the controller, while generalization has a stronger benefit to the
+      controller than the designer. Based on these results, we present a simple pair of principles to
+      guide the development of future co-design algorithms: the designer should maintain sampling
+      breadth, while the controller must generalize well and sample greedily.
+    </p>
+    <p class="prose">
+      Additionally, we demonstrate that the co-design algorithms NGE (Wang et al., 2018b) and BodyGen
+      (Lu et al., 2025) are both limited by the underperformance of one of their optimizers. To test
+      our hypothesis, we developed <strong>SCOPER</strong>, which uses representation learning and a
+      shared-network design to improve controller generalization, and high entropy on the designer
+      heads to enforce designer spread. Our ablations corroborate both the efficacy of these
+      additions for producing the desired behaviors, and for increasing performance.
+    </p>
+  </div>
+</section>
+
+
+<!-- The paper itself, embedded -->
+<section class="section is-shaded" id="paper">
+  <div class="container">
+    <h2 class="title section-title">Paper</h2>
+    <iframe class="poster-frame" src="static/pdfs/paper.pdf"></iframe>
+  </div>
+</section>
+
+
+</main>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

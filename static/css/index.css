@@ -1,0 +1,894 @@
+/* Modern CSS Variables for consistent theming */
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --secondary-color: #64748b;
+  --accent-color: #0ea5e9;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-light: #94a3b8;
+  --background-primary: #ffffff;
+  --background-secondary: #f8fafc;
+  --background-accent: #f1f5f9;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-subtle: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 16px;
+  background-color: var(--background-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Modern Button Styles */
+.button {
+  border-radius: var(--border-radius) !important;
+  font-weight: 600 !important;
+  transition: var(--transition) !important;
+  border: 2px solid transparent !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.button.is-dark {
+  background: var(--text-primary) !important;
+  border: none !important;
+  color: white !important;
+  box-shadow: var(--shadow-md);
+}
+
+.button.is-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: var(--primary-color) !important;
+}
+
+.button.is-dark:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-md);
+}
+
+.publication-links {
+  margin-top: 0.75rem;
+}
+
+.link-block a {
+    margin: 8px 4px;
+}
+
+/* Hero Section Modernization */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-body {
+  padding: 4rem 1.5rem;
+}
+
+.teaser .hero-body {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.teaser video {
+  display: block;
+  width: 100%;
+  height: auto; /* the width/height attributes only reserve the aspect ratio */
+  overflow: hidden;
+  pointer-events: none; /* no hover UI, no click-to-pause, no context menu */
+}
+
+/* The banner is a filmstrip 2560px wide -- a row of episodes whose whole point is read
+   left to right, so the page's measure is the one thing it must not obey. The teaser
+   alone spans the viewport: no container cap, no side padding, and no corner radius,
+   which only reads as a frame when there is page beside it. Nothing is cropped -- the
+   height follows from the width, so the full 2560x1080 frame is always on screen. */
+.teaser .container.is-max-desktop {
+  max-width: none;
+  width: 100%;
+  padding-inline: 0;
+}
+
+.teaser .hero-body {
+  padding-inline: 0;
+}
+
+/* Publication Content Styling */
+.publication-title {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 800 !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 2rem !important;
+    line-height: 1.1 !important;
+}
+
+.publication-authors {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.publication-authors a {
+   color: var(--primary-color) !important;
+   text-decoration: none;
+   font-weight: 600;
+   transition: var(--transition);
+   position: relative;
+}
+
+.publication-authors a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: var(--gradient-accent);
+    transition: var(--transition);
+}
+
+.publication-authors a:hover::after {
+    width: 100%;
+}
+
+.publication-authors a:hover {
+    color: var(--primary-hover) !important;
+}
+
+.author-block {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.results-carousel {
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+/* Before bulma-carousel attaches, every item is a direct child and they stack into one tall column
+   that collapses when the slider wraps them. Attached items live inside .slider, so this only
+   applies until then. */
+.results-carousel > .item:not(:first-child) {
+  display: none;
+}
+
+/* Font Awesome icons, inlined as SVG: the sizing its own JS used to inject. */
+.svg-inline--fa {
+  display: inline-block;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+
+.results-carousel .item {
+  margin: 1rem;
+  overflow: hidden;
+  padding: 1.5rem;
+  font-size: 0;
+  background: var(--background-primary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+}
+
+.results-carousel .item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.results-carousel .item img,
+.results-carousel video {
+  margin: 0;
+  border-radius: var(--border-radius);
+  width: 100%;
+  height: auto;
+}
+
+/* One caption style for every figure, carousel item or diagram alike. */
+.caption {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+/* Pagination and Misc Improvements */
+/* Scoped under .results-carousel to outrank bulma-carousel.min.css, which loads
+   after this file and would otherwise paint the dots white on a white page. */
+.results-carousel .slider-pagination .slider-page {
+  background: var(--text-light);
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.results-carousel .slider-pagination .slider-page.is-active {
+  background: var(--text-secondary);
+  transform: scale(1.2);
+}
+
+.eql-cntrb { 
+  font-size: 0.875rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* Content sections: Bulma's .section padding, shaded on alternate sections. */
+.section.is-shaded {
+  background: var(--background-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 700 !important;
+  color: var(--text-primary);
+  margin-bottom: 2rem !important;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-accent);
+  border-radius: 2px;
+}
+
+/* Content Improvements */
+.content.has-text-justified, .abstract {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.content.has-text-justified p {
+  margin-bottom: 1.5rem;
+}
+
+.abstract {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* Body text between section titles, figures and controls. */
+.prose {
+  padding-top: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: #4a4a4a;
+  word-break: break-word;
+}
+
+.prose:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+/* The template's is-max-desktop column is 960px at any screen size, a third of a
+   large monitor. Panels, plot and figures take the extra width; paragraphs stay
+   capped at a readable measure, the block centred on the page, its text left-aligned. */
+@media screen and (min-width: 1216px) {
+  .container.is-max-desktop { max-width: min(1400px, 85vw); }
+}
+
+.prose {
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+/* A bold phrase opening a paragraph, set a size up from the text it leads. */
+.lead-in {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.125;
+  color: #363636;
+}
+
+/* Bold term, then its definition; sub-items (per optimizer) indent under it. */
+.term-list b {
+  color: #363636;
+}
+
+.term-list > li:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.term-list {
+  margin-top: 1.0rem;
+}
+
+.prose {
+  margin-top: 1.0rem;
+}
+
+.term-sub {
+  padding-left: 20px;
+}
+
+.term-sub li::before {
+  content: "- ";
+}
+
+.poster-frame {
+  display: block;
+  width: 100%;
+  height: 550px;
+}
+
+/* Footer Improvements */
+.footer {
+  background: var(--background-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 3rem 1.5rem;
+}
+
+.footer .content {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.scroll-to-top:hover {
+  background: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dropdown-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.close-btn:hover {
+  background: var(--background-accent);
+  color: var(--text-primary);
+}
+
+.works-list {
+  padding: 1rem;
+}
+
+.work-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+  margin-bottom: 0.5rem;
+}
+
+.work-item:hover {
+  background: var(--background-accent);
+  transform: translateX(4px);
+}
+
+.work-info h5 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.work-info p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.work-venue {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.work-item .fas {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+/* Mobile Responsive Improvements */
+@media screen and (max-width: 768px) {
+  .hero-body {
+    padding: 2rem 1rem;
+  }
+  
+  .publication-title {
+    font-size: 2.5rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .publication-authors {
+    font-size: 1rem !important;
+  }
+  
+  .button {
+    margin: 0.25rem !important;
+    font-size: 0.875rem !important;
+    padding: 0.75rem 1rem !important;
+  }
+  
+  .results-carousel .item {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .teaser .hero-body {
+    padding: 1rem 0; /* vertical only: the filmstrip stays edge to edge on a phone too */
+  }
+  
+  .content.has-text-justified {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .publication-title {
+    font-size: 2rem !important;
+  }
+  
+  .hero-body {
+    padding: 1.5rem 0.75rem;
+  }
+  
+  .link-block {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Tablet Responsive */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .hero-body {
+    padding: 3rem 2rem;
+  }
+}
+
+/* Animation for page load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero, .section {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Improved focus states for accessibility */
+.button:focus,
+a:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  
+  .hero, .section {
+    animation: none;
+  }
+  
+  .button {
+    background: transparent !important;
+    color: var(--text-primary) !important;
+    box-shadow: none !important;
+  }
+}
+
+/* ── Landscape walk ─────────────────────────────────────────────────────────
+   The surface, then the settings on five lines: one per radius with the two
+   optimizers side by side, then, under a rule, what the walk costs and how
+   fast it is watched. One grid rather than five rows, so the label column and
+   both slider columns line up down the whole block -- the point of the layout
+   is that a designer setting and its controller counterpart, and equally a
+   population and the ratio it is spent at, sit on the same eye line. */
+
+.walk-plot {
+  width: 100%;
+  height: 520px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--background-secondary);
+  overflow: hidden;
+}
+
+.walk-controls {
+  margin: 1.25rem 0 0.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  display: grid;
+  grid-template-columns: max-content 1fr 1fr;
+  gap: 0.7rem 3rem;
+  align-items: center;
+}
+
+.walk-row {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* Heads the two slider columns, so the six radius sliders do not each have to
+   repeat whose they are. The empty corner cell is what holds column 1, since the
+   row-label column has nothing to head. */
+.walk-head {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  white-space: nowrap;
+  text-align: center;
+  transform: translateX(-40px); 
+  display: block;
+}
+
+.walk-cell {
+  display: grid;
+  grid-template-columns: max-content 1fr 3.8rem;
+  align-items: center;
+  gap: 0.15rem 0.6rem;
+  cursor: pointer;
+}
+
+/* The six cells the headings speak for: their own label is hidden and the track
+   takes the space back, which is also what puts the track's left edge under the
+   heading above it. The cells below the rule keep the three columns, because
+   "population size" and "simulation speed" are nobody's counterpart. */
+.walk-cell-pair {
+  grid-template-columns: 1fr 3.8rem;
+}
+
+.walk-cell-pair .walk-who {
+  display: none;
+}
+
+/* Reset is the one cell holding a control rather than a setting, so it opts out
+   of the three columns and just sits at the head of its row. */
+.walk-cell-button {
+  display: flex;
+  cursor: default;
+}
+
+.walk-who {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.walk-cell input[type="range"] {
+  width: 100%;
+  accent-color: var(--primary-color);
+}
+
+.walk-cell output {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+.walk-sep {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--border-color);
+  margin: 0.2rem 0;
+}
+
+/* Narrow screens cannot hold two sliders on a line; they stack, and the label
+   sits above its pair rather than beside it. Once they stack the column headings
+   head nothing, so they go and the per-slider labels come back in their place --
+   the pairing has to be readable at every width, only the way of saying it moves. */
+@media screen and (max-width: 768px) {
+  .walk-controls { grid-template-columns: 1fr; gap: 0.5rem; }
+  .walk-row { margin-top: 0.4rem; }
+  .walk-head,
+  .walk-corner { display: none; }
+  .walk-cell-pair { grid-template-columns: max-content 1fr 3.8rem; }
+  .walk-cell-pair .walk-who { display: block; }
+}
+
+/* ── Metric definitions ─────────────────────────────────────────────────────
+   The shared quantities side by side, then the measurement grid, which borrows
+   the Landscape walk panel's geometry on purpose: same row labels, same two
+   column headings, same collapse under 768px -- a slider there and its
+   measurement here sit in the same place. White panels, since the section
+   itself is shaded. */
+
+.metric-shared,
+.metric-grid {
+  margin: 2.0rem 0 1.5rem;
+  padding: 0.5rem 1.5rem;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+/* Two per row: the two distances, then the two reference points. Four across
+   would squeeze the wider formulae into a horizontal scroll. */
+.metric-shared {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2.0rem;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0 1.5rem;
+}
+
+.metric-head {
+  padding: 0.6rem 0 0.4rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.metric-row {
+  padding-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.metric-sep {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--border-color);
+}
+
+.metric {
+  padding: 1rem 0;
+  min-width: 0;
+}
+
+.metric-name {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Only the stacked layout needs each cell to say whose it is. */
+.metric-who {
+  display: none;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.metric-gloss {
+  margin-top: 0.3rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #4a4a4a;
+}
+
+.metric-reads {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+/* A long equation scrolls inside its cell rather than shrinking or widening the grid. */
+.metric .katex-display {
+  margin: 0.7rem 0;
+  padding: 0.2rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.metric .katex {
+  font-size: 1.08em;
+}
+
+@media screen and (max-width: 768px) {
+  .metric-shared,
+  .metric-grid { grid-template-columns: minmax(0, 1fr); padding: 0.25rem 1rem; }
+  .metric-shared .metric + .metric { border-top: 1px solid var(--border-color); }
+  .metric-head,
+  .metric-corner,
+  .metric-head + .metric-sep { display: none; }
+  .metric .katex { font-size: 0.95em; }
+  .metric-row { padding-top: 0.9rem; font-size: 1rem; }
+  .metric-row + .metric { padding-top: 0.4rem; }
+  .metric-grid .metric + .metric { border-top: 1px dashed var(--border-color); }
+  .metric-who { display: block; }
+}
+
+/* ── Figures ────────────────────────────────────────────────────────────────
+   A standalone image, centred at its natural size or the column width. */
+
+.figure {
+  margin: 2rem auto 0;
+}
+
+.figure img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+}
+
+/* A sub-heading inside a section (e.g. Co-Design on Robots' "Baseline Comparisons"),
+   set off from whatever prose or figure came before it. */
+.section .title.is-4 {
+  margin-top: 3rem;
+  color: var(--text-primary);
+}
+
+/* ── Methods ────────────────────────────────────────────────────────────────
+   RL.png, the one hand-drawn diagram left in this section. Capped rather than
+   stretched: it's a small PNG and upscaling it would only blur the lettering. */
+
+.method-figure {
+  margin: 0 auto 2.75rem;
+  max-width: 740px;
+}
+
+.method-figure:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Results table ──────────────────────────────────────────────────────────
+   The paper's headline comparison table, rendered as HTML rather than an
+   image so its numbers stay selectable and legible at any width. */
+
+.table-container {
+  margin: 2rem auto 0;
+  overflow-x: auto;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.results-table caption {
+  caption-side: bottom;
+  padding-top: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+.results-table th,
+.results-table td {
+  padding: 0.75rem 1.25rem;
+  text-align: right;
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.results-table th:first-child,
+.results-table td:first-child {
+  text-align: left;
+}
+
+.results-table thead th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--background-secondary);
+}
+
+.results-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.results-table-highlight td {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--background-accent);
+}
